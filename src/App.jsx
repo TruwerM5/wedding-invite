@@ -107,9 +107,9 @@ function App() {
               <div  className='text-center font-lora text-xl'>
                 <p>СВАДЬБА СОСТОИТСЯ:</p>
                 <p className='text-3xl'><strong><i>12 июля</i></strong></p>
-                <img src="/images/boy-and-girl.png" alt="boy-and-girl" className='mx-auto' />
+                <img src="images/boy-and-girl.png" alt="boy-and-girl" className='mx-auto' />
                 <div className='photo m-10 pt-2 px-4 pb-10'>
-                  <img src="/images/main-photo.jpeg" alt="Main photo" />
+                  <img src="images/main-photo.jpeg" alt="Main photo" />
                 </div>
               </div>
             </AnimationScroll>
