@@ -70,14 +70,14 @@ function App() {
     const form = e.target;
     const formData = new FormData(form);
     const guests = formData.get('guests');
-    let chat_id = my_chat_id;
+    let chat_id = nikita_chat_id;
     const data = {
       chat_id,
       text: `${firstName + ':   ' + guests}`,
     } 
     
-    // await sendMessage(JSON.stringify(data));
-    data.chat_id = my_chat_id;
+    await sendMessage(JSON.stringify(data));
+    data.chat_id = regina_chat_id;
     await sendMessage(JSON.stringify(data));
   }
 
