@@ -14,7 +14,7 @@ export default function AnimationScroll({ children }) {
     useEffect(() => {
         function handleScroll() {
             const top = ref.current.getBoundingClientRect().top;
-            if(top < 370) {
+            if(top < 470) {
                 setIsActive(true);
             }
         };
@@ -27,18 +27,8 @@ export default function AnimationScroll({ children }) {
         };
     }, []);
 
-    // if(!isActive) {
-    //     return (
-    //         <div ref={ref}>
-
-    //         </div>
-    //     )
-    //     // return null;
-    // }
-
-
     return (
-        <div className="min-h-[300px] mb-10">
+        <div className="min-h-[250px] mb-10">
             <div 
             className={isActive ? className : ''} 
             ref={ref} 

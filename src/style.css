@@ -3,11 +3,7 @@
 @tailwind utilities;
 
 body {
-    min-height: 400vh;
-    /* background-color: #FFE5D9; */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top right;
+    min-height: 400vh; 
 }
 
 .char-animation {
@@ -20,17 +16,19 @@ body {
 .scroll-animation {
     position: relative;
     opacity: 0;
+    transform-origin: center center;
     animation: char-animation 1s forwards ease-in-out;
 }
 
 @keyframes char-animation {
     from {
-        transform: translateY(-80%);
+        transform: perspective(10px) rotateX(0.3deg) translateY(-80%);
+        opacity: 0;
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform:  perspective(0) rotateX(0) translateY(0);
     }
 }
 
@@ -147,4 +145,23 @@ body {
     top: 0;
     left: 13px;
     border-radius: 50%;
+}
+
+.primary-btn {
+    background-color: #7d8a60;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 25px;
+    width: fit-content;
+    font-family: 'Lora';
+    font-size: 20px;
+    transition: background-color .2s;
+}
+
+.primary-btn_large {
+    width: 100%;
+}
+
+.primary-btn:hover {
+    background-color: #565e43;
 }

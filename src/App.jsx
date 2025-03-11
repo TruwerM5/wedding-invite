@@ -3,11 +3,11 @@ import AnimationScroll from './components/AnimationScroll';
 import ChildPhotoWrapper from './components/ChildPhotoWrapper';
 import Event from './components/Event';
 import DressCode from './components/ DressCode';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 const events = [
   {
     id: 1,
-    time: '14:00',
+    time: '11:40',
     event: 'Регистрация',
     location: 'дворец бракосочетания',
     image: 'ring.png',
@@ -19,7 +19,7 @@ const events = [
     image: 'champagne.png',
   },{
     id: 3,
-    time: '17:00',
+    time: '16:00',
     event: 'Банкет',
     location: 'танцы, веселье и много любви',
     image: 'dinner.png',
@@ -28,28 +28,30 @@ const events = [
 const dresscodes = [
   {
     id: 1,
-    code: '#FFD7E0'
+    code: '#FFF8ED'
   },
   {
     id: 2,
-    code: '#E8E4D9'
+    code: '#FAEED6'
   },
   {
     id: 3,
-    code: '#E5B4B4'
+    code: '#F4E1CB'
   },
   {
     id: 4,
-    code: '#FFF5E4'
+    code: '#EBCFB4'
   }
 ];
 
 
 
 function App() {
-  const nikita_chat_id = 5002463306;
-  const regina_chat_id = 1078760880;
+  // const nikita_chat_id = 5002463306;
+  // const regina_chat_id = 1078760880;
   const my_chat_id = 485073047;
+  const [isSent, setIsSent] = useState(false);
+
   async function sendMessage(data) {
     const req = await fetch(
       'https://api.telegram.org/bot8083365022:AAEoaDWDRJIkbVi0sz6yacwJA1-y8aUY80Q/sendMessage',
@@ -62,7 +64,6 @@ function App() {
       }
     );
     const response = await req.json();
-    console.log(response.ok);
   }
 
   async function handleClick(e) {
@@ -70,15 +71,16 @@ function App() {
     const form = e.target;
     const formData = new FormData(form);
     const guests = formData.get('guests');
-    let chat_id = nikita_chat_id;
+    let chat_id = my_chat_id;
     const data = {
       chat_id,
       text: `${firstName + ':   ' + guests}`,
     } 
     
     await sendMessage(JSON.stringify(data));
-    data.chat_id = regina_chat_id;
-    await sendMessage(JSON.stringify(data));
+    setIsSent(true);
+    // data.chat_id = regina_chat_id;
+    // await sendMessage(JSON.stringify(data));
   }
 
   const [firstName, setFirstName] = useState('');
@@ -86,12 +88,9 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className='max-w-[500px] mx-auto'>
       <ChildPhotoWrapper />
         <div className="max-w-[600px] mx-auto">
-            {/* <AnimationScroll>
-              <Names hisName={hisName} herName={herName} />  
-            </AnimationScroll> */}
             <AnimationScroll>
               <div className="px-4">
                 <h3 className='font-kurale text-center text-3xl mb-8'>Узнали этих ребятишек?</h3>
@@ -113,6 +112,7 @@ function App() {
                 </div>
               </div>
             </AnimationScroll>
+            
             <AnimationScroll>
               <div className='px-2'>
                 <h3 className='text-center text-4xl font-kurale mb-4'>Тайминг</h3>
@@ -142,6 +142,45 @@ function App() {
             </div>
             </AnimationScroll>
             <AnimationScroll>
+              <div className="px-2 mb-8">
+                <h3 className='font-kurale text-center text-4xl mb-4'>Локация</h3>
+                <p className='text-center mb-2 font-lora text-xl'>
+                  Дворец бракосочетания
+                </p>
+                <p className='text-center mb-8 font-lora text-xl'>
+                  ул. Нефтяников, 8
+                </p>
+                <a href="https://yandex.ru/maps/org/upravleniye_zags_ispolnitelnogo_komiteta_almetyevskogo_munitsipalnogo_rayona/1067510409?si=x9vtmcur9kxvvpnutbukwg0wr4" 
+                className="block primary-btn mx-auto" target='_blank'>
+                  Посмотреть на карте
+                </a>
+
+                <p className='text-center mt-6 mb-2 font-lora text-xl'>
+                  Ресторан Венеция
+                </p>
+                <p className='text-center mb-8 font-lora text-xl'>
+                  ул. Защитников Отечества, 89А
+                </p>
+                <a href="https://yandex.ru/maps/org/venetsiya/11198301229?si=x9vtmcur9kxvvpnutbukwg0wr4" 
+                className="block primary-btn mx-auto" target='_blank'>
+                  Посмотреть на карте
+                </a>
+              </div>
+            </AnimationScroll>
+            <AnimationScroll>
+              <div className="px-2 mb-8">
+                <h3 className='font-kurale text-center text-4xl mb-4'>
+                  Пожелания
+                </h3>
+                <p className='text-center mb-2 font-lora text-lg px-4'>
+                  Дорогие гости! мы создаем вечер, где детали становятся частью большой любви. 
+                  Просим Вас оставить детей дома и присоединиться к нам, чтобы вместе написать
+                  новую страничку нашей истории.
+                </p>
+              </div>
+            </AnimationScroll>
+            {!isSent ? (
+              <AnimationScroll>
               <div className='px-4'>
               <h3 className='font-kurale text-center text-2xl mb-4'>
                 Пожалуйста, подтвердите свое присутствие
@@ -150,7 +189,7 @@ function App() {
                 Ваши ответы помогут нам при организации нашего торжетсва.
               </p>
               <p className='text-center font-lora text-xl mb-12'>
-                Мы будем ждать от вас ответ до 01.07
+                Мы будем ждать от вас ответ до 25.05.2025
               </p>
               <form 
                 className='form font-lora px-4' 
@@ -197,13 +236,20 @@ function App() {
                     placeholder='Иван Иванов'
                   />
                   <button type='submit'
-                  className='w-full bg-gradient-to-l bg-zinc-600 text-white
-                  py-4 rounded-[30px] mt-6 font-lora text-xl'>
+                  className='mt-6 text-xl primary-btn primary-btn_large'>
                     Отправить
                   </button>
               </form>
               </div>
             </AnimationScroll>
+            ) : (
+              <div className='mb-12 py-4'>
+                <h3 className='font-kurale text-center text-2xl mb-4'>
+                  Спасибо за обратную связь!
+                </h3>
+                <img src="images/done.png" alt="Done" className='block mx-auto' />
+              </div>
+            )}
         </div>
       </div>
     </>
