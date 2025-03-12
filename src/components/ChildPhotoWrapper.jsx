@@ -28,11 +28,12 @@ export default function ChildPhotoWrapper() {
                 style={{
                     gridColumn: '1/5',
                     width: '200px',
-                    margin: '0 auto'
+                    margin: '0 auto',
+                    fontSize: '30px'
                 }}
             >
                 <span>{hisInfo.name[0]} + {herInfo.name[0]} = </span>
-                <img src="images/heart.png" alt="Heart" width={20} />
+                <img src="images/heart.png" alt="Heart" width={30} />
             </div>
             <img src="images/car.jpg" alt="car" style={{gridColumn: '1/3'}} />
             <ChildPhoto 

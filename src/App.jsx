@@ -3,23 +3,24 @@ import AnimationScroll from './components/AnimationScroll';
 import ChildPhotoWrapper from './components/ChildPhotoWrapper';
 import Event from './components/Event';
 import DressCode from './components/ DressCode';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
+
 const events = [
   {
     id: 1,
-    time: '11:40',
-    event: 'Регистрация',
-    location: 'дворец бракосочетания',
-    image: 'ring.png',
-  },{
-    id: 2,
     time: '16:00',
-    event: 'Фуршет',
+    event: 'СБОР ГОСТЕЙ',
     location: 'знакомства и общение',
     image: 'champagne.png',
   },{
+    id: 2,
+    time: '16:20',
+    event: 'Церемония бракосочетания',
+    location: 'дворец бракосочетания',
+    image: 'ring.png',
+  },{
     id: 3,
-    time: '16:00',
+    time: '17:30',
     event: 'Банкет',
     location: 'танцы, веселье и много любви',
     image: 'dinner.png',
@@ -49,7 +50,7 @@ const dresscodes = [
 function App() {
   const nikita_chat_id = 5002463306;
   const regina_chat_id = 1078760880;
-  const my_chat_id = 485073047;
+  // const my_chat_id = 485073047;
   const [isSent, setIsSent] = useState(false);
 
   async function sendMessage(data) {
@@ -88,6 +89,7 @@ function App() {
 
   return (
     <>
+    
       <div className='max-w-[500px] mx-auto'>
       <ChildPhotoWrapper />
         <div className="max-w-[600px] mx-auto">
@@ -105,10 +107,9 @@ function App() {
             <AnimationScroll>
               <div  className='text-center font-lora text-xl'>
                 <p>СВАДЬБА СОСТОИТСЯ:</p>
-                <p className='text-3xl'><strong><i>12 июля</i></strong></p>
-                <img src="images/boy-and-girl.png" alt="boy-and-girl" className='mx-auto' />
+                <p className='text-4xl underline text-zinc-800'><i>12 июля 2025 года</i></p>
                 <div className='photo m-10 pt-2 px-4 pb-10'>
-                  <img src="images/main-photo.jpeg" alt="Main photo" />
+                  <img src="images/main-photo.jpeg" rel='preload' alt="Main photo" />
                 </div>
               </div>
             </AnimationScroll>
