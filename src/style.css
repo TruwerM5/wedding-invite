@@ -79,17 +79,6 @@ body {
     position: relative;
 }
 
-.event__inner::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    height: 1px;
-    width: 100%;
-    background-color: #444;
-}
-
 .circle {
     padding: 15px;
     width: 100px;
@@ -103,10 +92,10 @@ body {
 }
 
 .wrapper {
-    padding: 45px 15px;
+    padding: 25px 15px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 7fr 1fr 7fr;
+    grid-template-rows: 3fr 30px 3fr;
     align-items: center;
     gap: 15px;
     background-color: #fff;

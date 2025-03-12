@@ -4,22 +4,29 @@ import ChildPhotoWrapper from './components/ChildPhotoWrapper';
 import Event from './components/Event';
 import DressCode from './components/ DressCode';
 import { useState } from 'react';
-
+import Calendar from './components/Calendar';
+import photo from './assets/images/main-photo.jpeg';
 const events = [
   {
     id: 1,
-    time: '16:00',
-    event: 'СБОР ГОСТЕЙ',
-    location: 'знакомства и общение',
-    image: 'champagne.png',
-  },{
-    id: 2,
-    time: '16:20',
-    event: 'Церемония бракосочетания',
+    time: '11:40',
+    event: 'ЗАГС',
     location: 'дворец бракосочетания',
     image: 'ring.png',
   },{
+    id: 2,
+    time: '16:00',
+    event: 'СБОР ГОСТЕЙ',
+    location: 'знакомства и общение',
+    image: 'crowd.png',
+  },{
     id: 3,
+    time: '16:20',
+    event: 'Церемония бракосочетания',
+    location: 'знакомства и общение',
+    image: 'champagne.png',
+  },{
+    id: 4,
     time: '17:30',
     event: 'Банкет',
     location: 'танцы, веселье и много любви',
@@ -29,7 +36,7 @@ const events = [
 const dresscodes = [
   {
     id: 1,
-    code: '#FFF8ED'
+    code: '#C7986F'
   },
   {
     id: 2,
@@ -108,9 +115,11 @@ function App() {
               <div  className='text-center font-lora text-xl'>
                 <p>СВАДЬБА СОСТОИТСЯ:</p>
                 <p className='text-4xl underline text-zinc-800'><i>12 июля 2025 года</i></p>
+                <Calendar date={new Date(2025, 6, 12)} />
                 <div className='photo m-10 pt-2 px-4 pb-10'>
-                  <img src="images/main-photo.jpeg" rel='preload' alt="Main photo" />
+                  <img src={photo} rel='preload' alt="Main photo" />
                 </div>
+                
               </div>
             </AnimationScroll>
             

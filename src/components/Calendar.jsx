@@ -71,8 +71,8 @@ export default function Calendar({ date }) {
     compareDays(date.getFullYear(), date.getMonth(), days, pairs);
 
     return (
-        <div className="calendar max-w-[450px] mx-auto">
-            <h3 className="font-vibes text-center text-5xl mb-5">{month[0]}</h3>
+        <div className="calendar max-w-[450px] mx-auto my-12 px-4">
+            <h3 className="font-kurale text-center text-5xl mb-5">{month[0]}</h3>
             <div className="grid grid-cols-7 gap-[5px] justify-items-center">
                 {daysOfWeek.map(day => 
                     <span key={day.id} className="day-of-week font-lora font-semibold">
