@@ -71,7 +71,7 @@ export default function Calendar({ date }) {
     compareDays(date.getFullYear(), date.getMonth(), days, pairs);
 
     return (
-        <div className="calendar max-w-[450px] mx-auto my-12 px-4">
+        <div className="calendar max-w-[450px] mx-auto my-12 px-10 text-[16px]">
             <h3 className="font-kurale text-center text-5xl mb-5">{month[0]}</h3>
             <div className="grid grid-cols-7 gap-[5px] justify-items-center">
                 {daysOfWeek.map(day => 
@@ -83,7 +83,7 @@ export default function Calendar({ date }) {
             <hr className="h-[3px] bg-black mb-1" />
             <div className="grid grid-cols-7 gap-[5px] justify-items-center items-center">
                 {pairs.map((pair) => {
-                    let className = "p-1 w-[44px] h-[44px] text-center flex items-center justify-center";
+                    let className = "p-1 w-[30px] h-[30px] text-center flex items-center justify-center";
 
                     // eslint-disable-next-line react/prop-types
                     if(pair.day === date.getDate()) {

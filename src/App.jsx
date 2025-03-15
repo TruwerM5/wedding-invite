@@ -23,7 +23,7 @@ const events = [
     id: 3,
     time: '16:20',
     event: 'Церемония бракосочетания',
-    location: 'знакомства и общение',
+    location: 'Главное событие',
     image: 'champagne.png',
   },{
     id: 4,
@@ -158,7 +158,7 @@ function App() {
                   Дворец бракосочетания
                 </p>
                 <p className='text-center mb-8 font-lora text-xl'>
-                  ул. Нефтяников, 8
+                  г.Альметьевск, ул.Нефтяников, д.8
                 </p>
                 <a href="https://yandex.ru/maps/org/upravleniye_zags_ispolnitelnogo_komiteta_almetyevskogo_munitsipalnogo_rayona/1067510409?si=x9vtmcur9kxvvpnutbukwg0wr4" 
                 className="block primary-btn mx-auto" target='_blank'>
@@ -169,7 +169,7 @@ function App() {
                   Ресторан Венеция
                 </p>
                 <p className='text-center mb-8 font-lora text-xl'>
-                  ул.Защитников Отечества, 89А
+                г.Альметьевск, ул.Защитников Отечества, д.89А
                 </p>
                 <a href="https://yandex.ru/maps/org/venetsiya/11198301229?si=x9vtmcur9kxvvpnutbukwg0wr4" 
                 className="block primary-btn mx-auto" target='_blank'>
@@ -235,7 +235,6 @@ function App() {
                       <span>Прийти не получается</span>
                     </label>
                   </div>
-                  <p className='font-lora text-2xl mb-2'>Имя и фамилия</p>
                   <p className='text-zinc-600 mb-4'>
                     Если вы придете с парой, внесите все имена. 
                     Просьба написать без запятых и символов.
